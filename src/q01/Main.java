@@ -3,17 +3,22 @@ import java.util.*;
 class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = 4;   
+        int n = sc.nextInt();
 
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n - i; j++) {
+        // Upper part
+        for (int i = 0; i < n; i++) {
+
+            // Leading spaces
+            if (i % 2 == 1) {
                 System.out.print(" ");
             }
 
+            // First star
             System.out.print("*");
 
-            if (i > 1) {
-                for (int j = 1; j <= 2 * i - 3; j++) {
+            // Hollow part
+            if (i > 0) {
+                for (int j = 0; j < 2 * i - 1; j++) {
                     System.out.print(" ");
                 }
                 System.out.print("*");
@@ -22,15 +27,18 @@ class Main {
             System.out.println();
         }
 
-        for (int i = n - 1; i >= 1; i--) {
-            for (int j = 1; j <= n - i; j++) {
+        // Lower part
+        for (int i = n - 2; i >= 0; i--) {
+
+            // Leading spaces
+            if (i % 2 == 1) {
                 System.out.print(" ");
             }
 
             System.out.print("*");
 
-            if (i > 1) {
-                for (int j = 1; j <= 2 * i - 3; j++) {
+            if (i > 0) {
+                for (int j = 0; j < 2 * i - 1; j++) {
                     System.out.print(" ");
                 }
                 System.out.print("*");
@@ -40,20 +48,3 @@ class Main {
         }
     }
 }
-        
-
-        // TODO: Print a hollow diamond pattern of half-height n using '*'
-        //
-        // Rules:
-        //   - Only border cells have '*', inside is spaces
-        //   - No trailing spaces on any line
-        //
-        // Input: 4
-        // Output:
-        //    *
-        //   * *
-        //  *   *
-        // *     *
-        //  *   *
-        //   * *
-        //    *
